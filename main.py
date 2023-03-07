@@ -12,7 +12,6 @@ width = 64
 i = 0
 allFrames = []
 for frame in frames:
-    #frame.save(f"frames/frame{i}.png")
     art = asciiConverter.convertToAsciiArt(frame, width)
     asciiConverter.saveAsText(art, "frames" + os.sep + f"{i}.txt")
     allFrames.append(art)
