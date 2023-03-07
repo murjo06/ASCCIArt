@@ -4,10 +4,10 @@ import asciiConverter
 import consoleAnimator
 import os
 
-image = Image.open("cow.gif")
+image = Image.open("meme.gif")
 frames = imageProcessor.getFrames(image)
 
-width = 64
+width = 128
 
 i = 0
 allFrames = []
