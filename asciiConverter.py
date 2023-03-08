@@ -3,7 +3,7 @@ from PIL import Image
 asciiCharactersBySurface = "`^\",:;Il!i~+_-?][}{1)(|\\/tfjrxnuvczXYUJCLQ0OZmwqpdbkhao*#MW&8%B@$"
 
 def convertToAsciiArt(image, imageWidth):
-    img = image.resize((imageWidth * 2, round(imageWidth / (image.width / image.height))))
+    img = image.resize((imageWidth, round(0.5 * imageWidth / (image.width / image.height))))
     art = []
     (width, height) = img.size
     for y in range(0, height - 1):
