@@ -13,7 +13,7 @@ i = 0
 allFrames = []
 for frame in frames:
     art = asciiConverter.convertToAsciiArt(frame, width)
-    asciiConverter.saveAsText(art, "frames" + os.sep + f"{i}.txt")
+    #asciiConverter.saveAsText(art, "frames" + os.sep + f"{i}.txt")
     allFrames.append(art)
     i += 1
 consoleAnimator.draw(allFrames, 0.1)
