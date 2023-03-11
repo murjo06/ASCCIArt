@@ -6,9 +6,11 @@ import videoProcessor
 import cv2
 
 FRAMES_PER_SECOND = 5
+FONT_ASPECT_RATIO = 7.78 / 16
 WIDTH = 128
+USE_COLORS = True
 
-imagePath = "sus.jpg"
+imagePath = "sussy.gif"
 videoPath = "chad.mp4"
 
 def drawVideo(video_path: str):
@@ -29,12 +31,12 @@ def drawImage(image_path: str):
         i = 0
         allFrames = []
         for frame in frames:
-            art = asciiConverter.convertToAsciiArt(frame.resize((WIDTH, round(0.5 * WIDTH / (frame.width / frame.height))), Image.NEAREST).convert("RGB"))
+            art = asciiConverter.convertToAsciiArt(frame.resize((WIDTH, round(FONT_ASPECT_RATIO * WIDTH / (frame.width / frame.height))), Image.NEAREST).convert("RGB"), USE_COLORS)
             allFrames.append(art)
             i += 1
         consoleAnimator.drawVideo(allFrames, 0.1)
     else:
-        art = asciiConverter.convertToAsciiArt(image.resize((WIDTH, round(0.5 * WIDTH / (image.width / image.height))), Image.NEAREST).convert("RGB"))
+        art = asciiConverter.convertToAsciiArt(image.resize((WIDTH, round(FONT_ASPECT_RATIO * WIDTH / (image.width / image.height))), Image.NEAREST).convert("RGB"), USE_COLORS)
         consoleAnimator.draw(art)
 
 drawImage(imagePath)
