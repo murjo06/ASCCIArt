@@ -2,15 +2,14 @@ from PIL import Image
 
 asciiCharactersBySurface = "`^\",:;Il!i~+_-?][}{1)(|\\/tfjrxnuvczXYUJCLQ0OZmwqpdbkhao*#MW&8%B@$"
 
-def convertToAsciiArt(image, imageWidth):
-    img = image.resize((imageWidth, round(0.5 * imageWidth / (image.width / image.height))))
+def convertToAsciiArt(image: Image):
     art = []
-    (width, height) = img.size
+    (width, height) = image.size
     for y in range(0, height - 1):
         line = ""
         for x in range(0, width - 1):
             coordinate = x, y
-            pixel = img.getpixel(coordinate)
+            pixel = image.getpixel(coordinate)
             line += convertPixelToCharacter(pixel)
         art.append(line)
     return art
@@ -27,5 +26,5 @@ def saveAsText(art: str, location: str):
     with open(location, "w") as file:
         for line in art:
             file.write(line)
-            file.write('\n')
+            file.write("\n")
         file.close()

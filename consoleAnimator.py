@@ -1,7 +1,7 @@
 import time
 import os
 
-def draw(output: list, delay):
+def drawVideo(output: list, delay: float):
     k = 0
     prints = []
     for i in output:
@@ -15,3 +15,10 @@ def draw(output: list, delay):
         time.sleep(delay)
         print("\033[H\033[3J")
         k += 1
+
+def draw(output: str):
+    lines = ""
+    for i in output:
+        lines += i
+        lines += os.linesep
+    print(lines)
