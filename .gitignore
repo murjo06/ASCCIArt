@@ -1,2 +1,6 @@
 .DS_store
 __pycache__
+*.png
+*.jpg
+*.mp4
+*.gif
