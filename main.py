@@ -5,17 +5,19 @@ import consoleAnimator
 import videoProcessor
 import cv2
 
-FRAMES_PER_SECOND = 5
+FRAMES_PER_SECOND = 10
 FONT_ASPECT_RATIO = 7.78 / 16
 WIDTH = 128
 USE_COLORS = True
 
-imagePath = "sussy.gif"
-videoPath = "chad.mp4"
+IMAGE_PATH = ""
+VIDEO_PATH = ""
+#imagePath = str(input())
+#videoPath = str(input())
 
 def drawVideo(video_path: str):
     video = cv2.VideoCapture(video_path)
-    frames = videoProcessor.get_frames(video, FRAMES_PER_SECOND)
+    frames = videoProcessor.getFrames(video, FRAMES_PER_SECOND)
     images = []
     for frame in frames:
         image = Image.fromarray(frame).convert("RGB")
@@ -34,9 +36,10 @@ def drawImage(image_path: str):
             art = asciiConverter.convertToAsciiArt(frame.resize((WIDTH, round(FONT_ASPECT_RATIO * WIDTH / (frame.width / frame.height))), Image.NEAREST).convert("RGB"), USE_COLORS)
             allFrames.append(art)
             i += 1
-        consoleAnimator.drawVideo(allFrames, 0.1)
+        consoleAnimator.drawVideo(allFrames, 1 / FRAMES_PER_SECOND)
     else:
         art = asciiConverter.convertToAsciiArt(image.resize((WIDTH, round(FONT_ASPECT_RATIO * WIDTH / (image.width / image.height))), Image.NEAREST).convert("RGB"), USE_COLORS)
         consoleAnimator.draw(art)
 
-drawImage(imagePath)
+drawImage(IMAGE_PATH)
+#drawVideo(VIDEO_PATH)
