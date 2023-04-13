@@ -1,6 +1,6 @@
 from PIL import Image
 
-asciiCharactersBySurface = r" `^\",:;Il!i~+_-?][}{1)(|\\/tfjrxnuvczXYUJCLQ0OZmwqpdbkhao*#MW&8%B@$"
+asciiCharactersBySurface = " `^\",:;Il!i~+_-?][}{1)(|\\/tfjrxnuvczXYUJCLQ0OZmwqpdbkhao*#MW&8%B@$"
 
 def convertToAsciiArt(image: Image, useColors: bool):
     art = []
@@ -14,7 +14,7 @@ def convertToAsciiArt(image: Image, useColors: bool):
         art.append(line)
     return art
 
-def convertPixelToCharacter(pixel, useColors: bool):
+def convertPixelToCharacter(pixel: tuple, useColors: bool):
     (r, g, b) = pixel
     pixelBrightness = r + g + b
     maxBrightness = 255 * 3
